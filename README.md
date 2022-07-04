@@ -1,2 +1,4 @@
 # big_data_management
-code associaited with ZZEN9313
+code associated with ZZEN9313
+
+

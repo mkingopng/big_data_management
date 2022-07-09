@@ -1,6 +1,6 @@
 import pandas as pd
 
-pd.set_option('display.max_rows', 10)
+pd.set_option('display.max_rows', 20)
 pd.set_option('display.max_columns', 10)
 pd.set_option('display.max_colwidth', 20)
 
@@ -20,7 +20,25 @@ table = [
 
 df = pd.DataFrame(table)
 
-print(df)
+# split up column 3 into guest table
+guests_table = {0: 'first_name', 1: 'last_name', 2: '1', 3: '2', 4: '3', 5: '4'}
+guests_df = df[2].str.split(pat=' ', expand=True).rename(mapper=guests_table, axis=1)
+new = {
+    'first_name': ['Mike', 'Melanie', 'Paul'],
+    'last_name': ['Jones', 'Jones', 'Johnson']
+}
+new_guests = pd.DataFrame(new)
+guests_df = guests_df.drop(['1', '2', '3', '4'], axis=1).reset_index(drop=True)
+guests_df = pd.concat([guests_df, new_guests], keys=['first_name', 'first_name'], ignore_index=True, axis=0)
+guests_df = guests_df.drop(9, axis=0, inplace=False)
+guests_df = guests_df.reset_index(drop=True, inplace=False)
+guests_df = guests_df.reset_index(drop=False, inplace=False)
+guests_df = guests_df.rename({'index': 'guest_id'}, axis=1)
+guests_df.to_csv('guests_table.csv')
+print(guests_df)
+
+# split up column 4
 
 # split into database tables
 
+# guest_names = df[['', '']]

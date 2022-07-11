@@ -18,11 +18,11 @@ table = [
     ['Rose Cottage', '17 Jan 2020', 'Mike and Melanie Jones', 'Phone: Mike usual phone, Melanie 0555 654769, arrive at 6 pm']
     ]
 
-df = pd.DataFrame(table)
+table_df = pd.DataFrame(table)
 
-# split up column 3 into guest table
+# mk: split up column 3 into guest_table.csv
 guests_table = {0: 'first_name', 1: 'last_name', 2: '1', 3: '2', 4: '3', 5: '4'}
-guests_df = df[2].str.split(pat=' ', expand=True).rename(mapper=guests_table, axis=1)
+guests_df = table_df[2].str.split(pat=' ', expand=True).rename(mapper=guests_table, axis=1)
 new = {
     'first_name': ['Mike', 'Melanie', 'Paul'],
     'last_name': ['Jones', 'Jones', 'Johnson']
@@ -35,10 +35,14 @@ guests_df = guests_df.reset_index(drop=True, inplace=False)
 guests_df = guests_df.reset_index(drop=False, inplace=False)
 guests_df = guests_df.rename({'index': 'guest_id'}, axis=1)
 guests_df.to_csv('guests_table.csv')
-print(guests_df)
+# print(guests_df)
+
+print(table_df)
 
 # split up column 4
 
-# split into database tables
-
-# guest_names = df[['', '']]
+# mk: split into database tables:
+#   - room_table
+#   - guest_table 🗸
+#   - booking_table
+#   - guest_contact_details_table

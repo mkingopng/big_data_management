@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="hr_db_queries.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+    <script-file value="$PROJECT_DIR$/hr_db_queries.sql" />
+    <script-mode>FILE</script-mode>
+    <data-source id="1a08b184-93b2-4d97-847a-396c496b695f" />
+    <method v="2" />
+  </configuration>
+</component>

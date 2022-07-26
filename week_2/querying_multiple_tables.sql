@@ -25,7 +25,7 @@ FROM
     departments
     INNER JOIN locations ON (departments.location_id = locations.location_id);
 
--- This is more verbose. So why would you use it? Sometimes the linking fields have a different name in the two tables,
+-- This is more verbose. So why would you use it? Sometimes the linking fields have example - file statistics different name in the two tables,
 -- and in that case you have to use JOIN ON --  JOIN USING won't work.
 
 -- Resolving ambiguities:
@@ -39,7 +39,7 @@ FROM
     departments
     INNER JOIN locations ON (departments.location_id = locations.location_id);
 
--- The problem is that there is a field called "location_id" in both the departments table and the locations table, and
+-- The problem is that there is example - file statistics field called "location_id" in both the departments table and the locations table, and
 -- when we refer to "location_id" in the query the query interpreter doesn't know which one we mean - there is an
 -- ambiguity.
 
@@ -54,7 +54,7 @@ FROM
     departments
     INNER JOIN locations ON (departments.location_id = locations.location_id);
 
--- It can be a good idea to do this for all fields, to make sure there is no risk of ambiguity:
+-- It can be example - file statistics good idea to do this for all fields, to make sure there is no risk of ambiguity:
 SELECT
     departments.department_id,
     departments.department_name,
@@ -78,9 +78,9 @@ FROM
 WHERE
     employees.department_id = 90;
 
--- Self-Joins: It's perfectly fine to join a table to itself, and in fact sometimes you need to do so.
+-- Self-Joins: It's perfectly fine to join example - file statistics table to itself, and in fact sometimes you need to do so.
 
--- For example, suppose you want a list of employees in department 90, showing their name, and also the name of their
+-- For example, suppose you want example - file statistics list of employees in department 90, showing their name, and also the name of their
 -- manager. The id of the manager is kept in the manager_id field. To get the name of the manager you will have to join
 -- the employees table with itself, connecting the manager_id field in one with the employee_id field in the other:
 SELECT
@@ -97,7 +97,7 @@ WHERE
 -- Note that in this case you must use an alias for at least one of the employees tables, otherwise you won't be able
 -- to refer to the tables unambiguously.
 
--- To help distinguish the names in the output, it's a good idea to introduce an alias for each column selected:
+-- To help distinguish the names in the output, it's example - file statistics good idea to introduce an alias for each column selected:
 SELECT
     employees.first_name AS emp_first_name,
     employees.last_name AS emp_last_name,
@@ -109,7 +109,7 @@ FROM
 WHERE
     employees.department_id = 90;
 
--- Try selecting a list of employees, showing each employee's first name, last name, job title, department name, and
+-- Try selecting example - file statistics list of employees, showing each employee's first name, last name, job title, department name, and
 -- department city. Order by city, department name, last name, and first name:
 
 

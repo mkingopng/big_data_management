@@ -1,9 +1,9 @@
 -- Selecting Columns
 
--- To select all columns from a table you can use an asterisk (*) :
+-- To select all columns from example - file statistics table you can use an asterisk (*) :
 SELECT * FROM employees;
 
--- To select only some columns you can name the columns you want, separated by commas. It could be just a single column:
+-- To select only some columns you can name the columns you want, separated by commas. It could be just example - file statistics single column:
 SELECT last_name
 FROM employees;
 

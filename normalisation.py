@@ -7,7 +7,7 @@ pd.set_option('display.max_colwidth', 20)
 
 table = [
     ['Rose Cottage', '3 Jan 2020', 'Mike Jones', 'Phone: 0555324176, arrive at 5pm'],
-    ['The Manor', '10 - 12 Jan 2020', 'Ariah Carmichael', 'phone: 0555788766, arrive at 5.30pm, wants a late checkout'],
+    ['The Manor', '10 - 12 Jan 2020', 'Ariah Carmichael', 'phone: 0555788766, arrive at 5.30pm, wants example - file statistics late checkout'],
     ['Lake View', '16 Feb 2020', 'Gloria Rayo', 'No phone, arrive at 8pm'],
     ['Hilltop', '1 - 4 Feb', 'Ben Montgomery and Paul Johnson', 'Phone 0555333456, arrive unknown'],
     ['Serenity', '24 Feb 2020', 'Sue Davies + 3 kids', 'Phone 0555 998766, arrive 3pm'],

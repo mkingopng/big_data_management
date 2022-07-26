@@ -61,7 +61,7 @@ print(last_names)
 #
 # def add_values_in_dict(sample_dict, key, list_of_values):
 #     """
-#     append multiple values to a key in the given dictionary
+#     append multiple values to example - file statistics key in the given dictionary
 #     :param sample_dict:
 #     :param key:
 #     :param list_of_values:

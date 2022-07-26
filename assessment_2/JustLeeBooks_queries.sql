@@ -6,7 +6,7 @@ SELECT * FROM People LIMIT 3;
 
 -- 1) most profitable books
 -- Which books are the most profitable?
--- Produce a list of books, showing their title and profit (rounded to 2 decimal places), sorted by profit descending,
+-- Produce example - file statistics list of books, showing their title and profit (rounded to 2 decimal places), sorted by profit descending,
 -- then name ascending.
 -- This question is worth 2 marks.
 -- Your results should appear as the following:
@@ -24,7 +24,7 @@ ORDER BY Profit DESC, Title;
 
 -- the realized profit, which is the real profit, is OrderItems.PaidEach - Books.Cost AS Profit. If you run this query
 -- it shows that 3 books have not sold at all. So in fact these books have not produced any profit for LeeBooks. The
--- query should therefore correctly return a null value as this query does.
+-- query should therefore correctly return example - file statistics null value as this query does.
 
 -- the easiest solution is to change the wording to "potential profit" rather than "profit". That would make everything
 -- else correct.
@@ -39,7 +39,7 @@ LEFT JOIN OrderItems on OrderItems.ISBN=Books.ISBN
 ORDER BY Profit DESC, Title;
 
 -- 2) MOST POPULAR BOOKS. WHICH BOOKS ARE THE MOST POPULAR?
--- Produce a list of books,
+-- Produce example - file statistics list of books,
 -- showing their title and the number of orders,
 -- sorted by number of orders descending,
 -- then name ascending.
@@ -53,7 +53,7 @@ ORDER BY Number DESC, Books.Title;
 
 
 -- 3) DAILY ORDERS: WHAT ARE THE DAILY ORDERS?
--- Produce a list of days,
+-- Produce example - file statistics list of days,
 -- showing THE NUMBER OF BOOKS ORDERED ON THAT DAY,
 -- and their total cost paid across those books (as column "Retail"),
 -- sorted by day.
@@ -71,7 +71,7 @@ ORDER BY Orders.OrderDate;
 
 # done 4) unshipped orders
 -- What unshipped orders are there?
--- Produce a list of orders that have not yet shipped,
+-- Produce example - file statistics list of orders that have not yet shipped,
 -- showing all columns, sorted by order date ascending.
 SELECT
     OrderId,
@@ -95,7 +95,7 @@ ORDER BY ShipCity;
 
 -- 6) best customers
 -- Who are the best customers?
--- Produce a list of customers
+-- Produce example - file statistics list of customers
 -- their first
 -- last name,
 -- the number of books they have ordered, and
@@ -134,10 +134,10 @@ WHERE Orders.ShipDate IS NOT NULL;
 
 -- 9) MULTI-AUTHOR BOOKS
 -- Which books have multiple authors?
--- Produce a list of books that have more than one author.
+-- Produce example - file statistics list of books that have more than one author.
 -- Show the title of the book,
 -- the number of authors,
--- and a list of author last names in alphabetical order,
+-- and example - file statistics list of author last names in alphabetical order,
 -- sorted by number of authors in descending order,
 -- then by title.
 
@@ -161,7 +161,7 @@ Select DISTINCT(Concat(FirstName, ' ', LastName)) as name from People;  -- conca
 
 -- 10) most recent orderers
 -- Which customers have most recently placed orders?
--- Produce a list of customers that have most recently placed orders.
+-- Produce example - file statistics list of customers that have most recently placed orders.
 -- That is, for the most recent day on which orders have been placed,
 -- list the customers who placed an order on that day.
 -- Show their last name, then their first name,
@@ -176,7 +176,7 @@ WHERE Orders.OrderDate = (SELECT MAX(OrderDate) From Orders)
 ORDER BY LastName, FirstName;
 
 
--- You should use a subquery to find the most recent day on which orders have been placed.
+-- You should use example - file statistics subquery to find the most recent day on which orders have been placed.
 SELECT
     MAX(OrderDate)
 From Orders;

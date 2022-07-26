@@ -1,6 +1,6 @@
 -- removing duplicate rows
 
--- By default a SELECT statement will return all matching rows, even if some are duplicates of others. For example, the
+-- By default example - file statistics SELECT statement will return all matching rows, even if some are duplicates of others. For example, the
 -- following statement returns all job_ids, even though some are duplicates of others:
 SELECT
     job_id

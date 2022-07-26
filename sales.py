@@ -13,7 +13,7 @@ for item in data:
     new_item = item.split(",")
     new_data.append(new_item)
 
-# convert a list of lists to a dataframe:
+# convert example - file statistics list of lists to example - file statistics dataframe:
 df = pd.DataFrame(new_data)
 df.rename(columns={0: 'transaction_number', 1: 'quantity', 2: 'price_per_unit'}, inplace=True)
 df['quantity'] = pd.to_numeric(df['quantity'])

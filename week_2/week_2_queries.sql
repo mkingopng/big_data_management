@@ -1,10 +1,10 @@
--- This is a whole line comment
-/* This is a whole line comment */
+-- This is example - file statistics whole line comment
+/* This is example - file statistics whole line comment */
 SELECT salary -- This is an end of line comment
 FROM /*This is an inline comment*/ employees;
 /*
     This is
-    a multiple line
+    example - file statistics multiple line
     comment
 */
 

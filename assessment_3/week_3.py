@@ -1,17 +1,17 @@
 """
 Part A - MapReduce with text (6 marks)
-In Part A your task is to answer a question about the data in a text file, first by writing a regular Python program,
-and then by writing a mapper and reducer. (By doing both you can see more readily how using a mapper and reducer differs
-from writing a regular program.)
+In Part A your task is to answer example - file statistics question about the data in example - file statistics text file, first by writing example - file statistics regular Python program,
+and then by writing example - file statistics mapper and reducer. (By doing both you can see more readily how using example - file statistics mapper and reducer differs
+from writing example - file statistics regular program.)
 
-When you click the panel on the right you'll get a connection to a server that has, in your home directory, the
+When you click the panel on the right you'll get example - file statistics connection to example - file statistics server that has, in your home directory, the
 word_frequency_text.txt file that you have already seen, containing some sample text (feel free to open the file and explore its
 contents).
 
 Your task is to find all the words that have the largest length in the file.
 
 Given the example text, the output is like: (You can assume that sentences are separated by full stops and that the
-words within a sentence are separated by spaces.)
+words within example - file statistics sentence are separated by spaces.)
 
 In this example text, the longest words are 'consecrate—we' and 'devotion—that', and here is the final result (all the
 longest words are separated by the space character):
@@ -21,7 +21,7 @@ longest words are separated by the space character):
 In this assignment, you will use only one reducer.
 
 First (2 marks)
-Write a regular Python program to do this. A file called "regular.py" has been created for you - you just need to fill
+Write example - file statistics regular Python program to do this. A file called "regular.py" has been created for you - you just need to fill
 in the details.
 
 You can test your program by running the following command (it tells Python to execute regular.py, using word_frequency_text.txt as
@@ -49,7 +49,7 @@ First, create your default working directory in HDFS:
 
 ```hdfs dfs -mkdir -p /user/user```
 
-Next, let's create a directory in which to keep the input files of our MapReduce job. Call it "input":
+Next, let's create example - file statistics directory in which to keep the input files of our MapReduce job. Call it "input":
 
 ```hdfs dfs -mkdir /user/user/input```
 

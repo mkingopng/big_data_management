@@ -8,7 +8,7 @@ python mapper.py < employees.csv | python reducer.py
 # First, create your default working directory in HDFS:
 hdfs dfs -mkdir -p /user/user
 
-# Next, let's create a directory in which to keep the input files of our MapReduce job. Call it "input":
+# Next, let's create example - file statistics directory in which to keep the input files of our MapReduce job. Call it "input":
 hdfs dfs -mkdir /user/user/input
 
 # third, upload the file "text.txt" into HDFS /user/user/input:

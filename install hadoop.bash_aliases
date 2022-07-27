@@ -13,7 +13,6 @@ sudo adduser hduser_ sudo
 Re-login as hduser_
 
 # configure SSH
-#
 su - hduser_
 
 #

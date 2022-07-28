@@ -1,4 +1,4 @@
--- You can sort the rows returned by example - file statistics query using an ORDER BY clause in your query:
+-- You can sort the rows returned by example_file_statistics query using an ORDER BY clause in your query:
 SELECT employee_id, last_name, hire_date
 FROM employees
 ORDER BY last_name;
@@ -22,7 +22,7 @@ FROM employees
 ORDER BY last_name DESC, first_name;
 -- You can add ASC also, to sort in ascending order, but this is the default so you don't need to.
 
--- Sorting by unselected columns: You can sort by example - file statistics column that is not on the SELECT list. In the example below, the
+-- Sorting by unselected columns: You can sort by example_file_statistics column that is not on the SELECT list. In the example below, the
 -- manager_id column is not listed in the SELECT clause:
 SELECT employee_id, last_name, hire_date
 FROM employees

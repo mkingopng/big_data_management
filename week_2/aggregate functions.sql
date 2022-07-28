@@ -2,7 +2,7 @@
 -- There are special functions that you can use to get totals, called aggregate functions.
 
 -- COUNT
--- To find the total number of rows in example - file statistics table you can use COUNT(*):
+-- To find the total number of rows in example_file_statistics table you can use COUNT(*):
 SELECT
     COUNT(*)
 FROM
@@ -41,13 +41,13 @@ SELECT
     SUM(salary)/COUNT(salary)
 FROM employees;
 
--- GROUP_CONCAT: Rather than counting or summing the values you can combine them into example - file statistics string, using the GROUP_CONCAT
+-- GROUP_CONCAT: Rather than counting or summing the values you can combine them into example_file_statistics string, using the GROUP_CONCAT
 -- function:
 SELECT
     GROUP_CONCAT(city)
 FROM locations
 
--- By default, example - file statistics comma is used as the separator. You can specify an alternative by using the SEPARATOR keyword:
+-- By default, example_file_statistics comma is used as the separator. You can specify an alternative by using the SEPARATOR keyword:
 SELECT
     GROUP_CONCAT(city SEPARATOR '; ')
 FROM locations
@@ -67,7 +67,7 @@ FROM locations;
 
 -- Here's an example where this matters. Each of the two queries below calculates the average commission paid to
 -- employees, but they treat NULL values of commission_pct differently. The first ignores them, whereas the second
--- counts them as 0. Thus, the first query returns example - file statistics higher average than the second. In example - file statistics bit more detail: The first
+-- counts them as 0. Thus, the first query returns example_file_statistics higher average than the second. In example_file_statistics bit more detail: The first
 -- query leaves NULL values of commission_pct as NULL. When salary is multiplied by NULL the result is NULL, and these
 -- NULLs are ignored by the AVG() function. The second query converts NULL values of commission_pct to 0. When salary is
 -- multiplied by 0 the result is 0, and these 0s are included in the AVG() function.

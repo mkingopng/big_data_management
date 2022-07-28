@@ -28,7 +28,7 @@ share/python-wheels/
 MANIFEST
 
 # PyInstaller
-#  Usually these files are written by example - file statistics python script from example - file statistics template
+#  Usually these files are written by example_file_statistics python script from example_file_statistics template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec

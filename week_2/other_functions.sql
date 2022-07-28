@@ -1,5 +1,5 @@
 -- Other functions
--- The CASE function: The CASE function provides example - file statistics convenient way to return example - file statistics value that depends upon which of example - file statistics number
+-- The CASE function: The CASE function provides example_file_statistics convenient way to return example_file_statistics value that depends upon which of example_file_statistics number
 -- of conditions obtains:
 SELECT
     last_name,
@@ -14,5 +14,5 @@ SELECT
 FROM employees
 ORDER BY salary DESC;
 
--- Try selecting example - file statistics list of locations showing each location's country, and the word "Local" if the country is Australia,
+-- Try selecting example_file_statistics list of locations showing each location's country, and the word "Local" if the country is Australia,
 -- "North America" if the country is USA or Canada, and "Other" for other countries, ordered by country.

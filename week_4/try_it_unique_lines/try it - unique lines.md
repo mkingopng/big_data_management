@@ -22,4 +22,4 @@ Your job will output these contents (the duplicate rows have been removed, ignor
 
 You can run your job using the following command:
 
-```$ python job.py text.txt```
+`python job.py text.txt`

@@ -24,7 +24,7 @@ SELECT
 FROM employees
 WHERE department_id IS NULL;
 
--- Adding NOT: You can filter for records that do not satisfy example - file statistics certain condition by adding the NOT operator to the
+-- Adding NOT: You can filter for records that do not satisfy example_file_statistics certain condition by adding the NOT operator to the
 -- condition. For example, to find employees whose department id is not 40 or 60 you could use:
 SELECT employee_id, last_name, first_name, department_id
 FROM employees
@@ -65,7 +65,7 @@ FROM employees
 WHERE last_name LIKE 'A%' OR last_name LIKE 'B%';
 
 -- Beware of ambiguity
--- When you use an expression that contains two or more operators then it is example - file statistics good idea to use parentheses to make it
+-- When you use an expression that contains two or more operators then it is example_file_statistics good idea to use parentheses to make it
 -- clear how you intend them to be grouped. For example:
 SELECT
     employee_id,
@@ -74,8 +74,8 @@ SELECT
 FROM employees
 WHERE (last_name LIKE 'A%' AND salary > 10000) OR last_name LIKE 'B%';
 
--- Comparing strings: When example - file statistics comparison is done between two strings, the values are compared using ASCII codes. ASCII
--- stands for American Standard Code for Information Interchange. ASCII codes represent example - file statistics number that computer or
+-- Comparing strings: When example_file_statistics comparison is done between two strings, the values are compared using ASCII codes. ASCII
+-- stands for American Standard Code for Information Interchange. ASCII codes represent example_file_statistics number that computer or
 -- software can translate. For example, the ASCII for character 1 is 49 (decimal).
 SELECT
     location_id,
@@ -95,7 +95,7 @@ WHERE postcode > '9';
 -- value for the number nine is 57 and, as an example, the ASCII decimal value for the letter 'Y' is 89. Since 89 is
 -- greater than 57, these values are among the selected records.
 
--- BETWEEN ... AND ... operator: To select values in example - file statistics certain range you can use example - file statistics combination of operators as follows:
+-- BETWEEN ... AND ... operator: To select values in example_file_statistics certain range you can use example_file_statistics combination of operators as follows:
 SELECT employee_id, last_name, first_name
 FROM employees
 WHERE last_name >= 'King' AND last_name <= 'Lee';

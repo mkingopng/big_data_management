@@ -1,5 +1,5 @@
 -- Filtering Rows
--- You can select only certain rows by adding example - file statistics WHERE clause to your query.
+-- You can select only certain rows by adding example_file_statistics WHERE clause to your query.
 
 -- The following query selects employees whose salary is greater than $10,000.
 SELECT employee_id, last_name, first_name, salary, hire_date

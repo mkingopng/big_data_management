@@ -1,6 +1,6 @@
 -- Pattern Matching
--- You can use the LIKE operator and its associated wildcard characters to filter to values that match example - file statistics certain
--- pattern. Its example - file statistics lot like regex in python but simpler
+-- You can use the LIKE operator and its associated wildcard characters to filter to values that match example_file_statistics certain
+-- pattern. Its example_file_statistics lot like regex in python but simpler
 
 -- There are two wildcard characters that you can use:
     -- Percent sign (%): matches zero or more characters, e.g. "bl%" matches "bl", "black", "blue", and "blob"
@@ -14,7 +14,7 @@ FROM employees
 WHERE last_name LIKE 'S%';
 
 -- You can combine uses of LIKE. The following query returns employees whose employee id starts with 1, has any number
--- in the middle, and ends with example - file statistics 9, and who started working in the year 2008:
+-- in the middle, and ends with example_file_statistics 9, and who started working in the year 2008:
 SELECT
     employee_id,
     last_name,
@@ -40,7 +40,7 @@ WHERE last_name NOT LIKE 'S%';
     -- Not Character(s) within the bracket sign (^): match any character not within the brackets, e.g. h[^oa]t finds hit
     -- but not hot and hat
 
-    -- A range of characters (-): match example - file statistics range of characters, e.g. c[example - file statistics-u]t finds cat and cut
+    -- A range of characters (-): match example_file_statistics range of characters, e.g. c[example_file_statistics-u]t finds cat and cut
 
 -- Try it:
 -- Try selecting all locations whose city starts with "South" or has "City" in it (or both), showing each

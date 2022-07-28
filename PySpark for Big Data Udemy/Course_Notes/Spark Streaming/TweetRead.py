@@ -40,9 +40,9 @@ def sendData(c_socket):
   twitter_stream.filter(track=['soccer'])
 
 if __name__ == "__main__":
-  s = socket.socket()         # Create example - file statistics socket object
+  s = socket.socket()         # Create example_file_statistics socket object
   host = "127.0.0.1"     # Get local machine name
-  port = 5555                 # Reserve example - file statistics port for your service.
+  port = 5555                 # Reserve example_file_statistics port for your service.
   s.bind((host, port))        # Bind to the port
 
   print("Listening on port: %s" % str(port))

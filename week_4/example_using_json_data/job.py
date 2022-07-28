@@ -1,10 +1,13 @@
 from mrjob.job import MRJob
+import json
 
 
 class Job(MRJob):
     def mapper(self, key, value):
-        for word in value.strip().split():
-            yield word, 1
+        people = json.loads(value)
+        for person in people:
+            for course in person["courses"]:
+                yield course, 1
 
     def reducer(self, key, values):
         yield key, sum(values)

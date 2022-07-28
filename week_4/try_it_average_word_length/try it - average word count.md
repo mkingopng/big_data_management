@@ -5,4 +5,8 @@ A file "job.py" has been started for you. You just need to fill in the details.
 
 The file text.txt is also on the server. You can run your job using text.txt as the input using the following command:
 
-`python job.py text.txt`
+`python job1.py text.txt`
+
+There are two different solutions provided. Can you see how they differ?
+
+`python job2.py text.txt`

@@ -2,15 +2,16 @@ from mrjob.job import MRJob
 
 
 class Job(MRJob):
+
     def mapper(self, key, value):
         fields = value.strip().split(',')
-        yield int(fields[-1]), fields[2]
+        yield 'salary', int(fields[-1])
 
     def combiner(self, key, values):
-        yield key, ','.join(values)
+        yield 'salary', max(values)
 
     def reducer(self, key, values):
-        yield key, ','.join(values)
+        yield 'Maximum salary', max(values)
 
 
 if __name__ == '__main__':

@@ -27,4 +27,16 @@ class Job(MRJob):
 if __name__ == '__main__':
     Job.run()
 
-# python 4b.py orders.csv
+# create a default directory on hdfs
+# hdfs dfs -mkdir -p /user/user
+
+# copy the file to it
+# hdfs dfs -put orders.csv
+
+# pass this file to job.py and store the output in hdfs
+# python job.py -r hadoop hdfs:///user/user/orders.csv -o hdfs:///user/user/output
+
+# check the results on hdfs
+# hdfs dfs -cat output/p*
+
+# test locally: python 4b.py orders.csv

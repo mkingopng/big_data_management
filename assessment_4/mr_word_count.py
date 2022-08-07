@@ -8,7 +8,7 @@ date_list = []
 new_dict = {}
 date_re = r'^[0-9]{8}'
 
-text_file = open('abcnews.txt')
+text_file = open('/assessment_4/assignment_4a/abcnews.txt')
 text = text_file.read()
 text = text.lower()
 
@@ -33,7 +33,7 @@ def add_values_in_dict(new_dict, key, date, count):
 new_dict = dict(zip(unique_words, [None] * len(unique_words)))
 print(new_dict)
 
-with open('abcnews.txt') as file:
+with open('assignment_4a/abcnews.txt') as file:
     lines = file.readlines()
     for line in lines:
         _list = line.split(',')

@@ -11,4 +11,4 @@ def word_count(str):
     return counts
 
 
-print( word_count('the quick brown fox jumps over the lazy dog.'))
+print(word_count('the quick brown fox jumps over the lazy dog.'))

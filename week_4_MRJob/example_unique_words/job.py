@@ -4,10 +4,10 @@ from mrjob.job import MRJob
 class Job(MRJob):
     def mapper(self, key, value):
         for word in value.split():
-            yield word, ""
+            yield word, 1
 
     def reducer(self, key, values):
-        yield key, ""
+        yield key, sum(values)
 
 
 if __name__ == '__main__':

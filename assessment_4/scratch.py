@@ -1,16 +1,41 @@
-# count-list-items-1.py
+import pandas as pd
 
-wordstring = 'it was the best of times it was the worst of times '
-wordstring += 'it was the age of wisdom it was the age of foolishness'
+# create unique word list
+word_list = []
 
-wordlist = wordstring.split()
+with open('assignment_4a/abcnews.txt') as f:
+    lines = f.readlines()
+    for line in lines:
+        date = line.split(',')[0]
+        date_list = []
+        date_list.append(date_list)
+    for line in lines:
+        words = line.strip().split(',')[1].split(' ')
+        for word in words:
+            if word in word_list:
+                pass
+            else:
+                word_list.append(word)
 
-wordfreq = []
-for w in wordlist:
-    wordfreq.append(wordlist.count(w))
+word_dict = dict.fromkeys(word_list, 0)
 
-print("String\n" + wordstring +"\n")  # prints the word string
-print("List\n" + str(wordlist) + "\n")  # prints a list of words from the text. duplicates allowed
-print("Frequencies\n" + str(wordfreq) + "\n")  # print frequencies, just returns numbers representing count. no words
-print("Pairs\n" + str(list(zip(wordlist, wordfreq))))  # print a dictionary with the count of each word
+word_count_df = pd.DataFrame.from_dict(word_dict, orient='index')
+
+# print(len(word_list))  # 40 words?
+# print(word_dict)
+# print(word_count_df)
+
+# count the unique words
+with open('assignment_4a/abcnews.txt') as f:
+    lines = f.readlines()
+    for line in lines:
+        words = line.strip().split(',')[1].split(' ')
+        for word in line:
+            if word in word_dict:
+                word_dict[word] += 1
+            else:
+                pass
+
+print(word_dict)
+
 

@@ -21,3 +21,11 @@ result = count.sortByKey(False).map(lambda x: x[0])
 
 result.saveAsTextFile(output_path)
 sc.stop()
+
+# create default directory in hadoop
+# hdfs dfs -mkdir -p /user/user
+
+# copy the txt file to it
+# hdfs dfs -put text.txt
+
+# spark-submit findpost.py

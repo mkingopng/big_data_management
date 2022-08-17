@@ -28,3 +28,11 @@ if __name__ == "__main__":
     topk = sc.parallelize(res)
     topk.saveAsTextFile("file:///home/output")
     sc.stop()
+
+# create default directory in hadoop
+# hdfs dfs -mkdir -p /user/user
+
+# copy the txt file to it
+# hdfs dfs -put text.txt
+
+# spark-submit topk_pair.py 5

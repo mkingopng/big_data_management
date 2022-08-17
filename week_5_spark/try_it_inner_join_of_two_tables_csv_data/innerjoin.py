@@ -6,7 +6,10 @@ class InnerJoin():
     def run(self, table1, table2):
         sc = SparkContext('local', 'Inner Join')
 
+        #
         employee_file = sc.textFile(table1).map(lambda line: line.strip().split(','))
+
+        #
         department_file = sc.textFile(table2).map(lambda line: line.strip().split(','))
 
         employee_tuples = employee_file.map(lambda x: (x[2], (x[0], x[1])))
@@ -31,3 +34,10 @@ if __name__ == "__main__":
     inner_join = InnerJoin()
     inner_join.run(sys.argv[1], sys.argv[2])
 
+# create default directory in hadoop
+# hdfs dfs -mkdir -p /user/user
+
+# copy the txt file to it
+# hdfs dfs -put Employee.csv
+
+# spark-submit innerjoin.py "file:///home/Employee.csv"

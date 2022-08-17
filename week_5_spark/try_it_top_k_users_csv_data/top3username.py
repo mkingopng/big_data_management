@@ -12,6 +12,7 @@ user_id = 5
 # Process Comments.csv
 comments_pairs = comments_File.map(lambda x: (x[user_id], 1))
 
+#
 id_user_pairs = comments_pairs.reduceByKey(lambda x, y: x + y)
 
 # Return the top 3 active users
@@ -24,3 +25,11 @@ res = sc.parallelize(id_user_pairs.takeOrdered(3, key=lambda x: -x[1]))
 
 res.map(lambda x: f"{x[0]}\t{x[1]}").saveAsTextFile("file:///home/output")
 sc.stop()
+
+# create default directory in hadoop
+# hdfs dfs -mkdir -p /user/user
+
+# copy the csv file to it
+# hdfs dfs -put Comments.csv
+
+# spark-submit top3user.py

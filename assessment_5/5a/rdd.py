@@ -32,8 +32,6 @@ sc.stop()
 
 # ----------------------------------
 
-
-
 # initially the key is the term, and the value is 1
 
 # then group by date

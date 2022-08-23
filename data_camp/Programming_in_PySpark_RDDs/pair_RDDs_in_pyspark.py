@@ -9,10 +9,11 @@ from pyspark import SparkContext
 
 sc = SparkContext
 
+# example:
 my_tuple = [('Sam', 23), ('Mary', 34), ('Peter', 25)]
 pairRDD_tuple = sc.parallelize(my_tuple)
 
-# here is an example of creating paired RDDs from regular RDDs
+# example: creating paired RDDs from regular RDDs
 my_list = ['Sam 23', 'Mary 34', 'Peter 25']
 regularRDD = sc.parallelize(my_list)
 pairRDD = regularRDD.map(lambda s: (s.split(' ')[0], s.split(' ')[1]))
@@ -28,6 +29,7 @@ pair RDD transformations include:
     order
     - join(): join two pair RDDs based on their key
 """
+# example: reduceByKey()
 regularRDD = sc.parallelize([('Messi', 23), ('Ronaldo', 34),
                              ('Neymar', 22), ('Messi', 24)])
 pairRDD_reducebykey = regularRDD.reduceByKey(lambda x, y: x + y)

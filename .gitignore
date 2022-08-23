@@ -132,3 +132,8 @@ dmypy.json
 /VIDEOS/
 /conf/
 /.dbx/
+/datacamp/
+/data_camp/videos/
+/data_camp/PDFs/
+/data_camp/introduction_to_big_data_analysis_with_spark/chapter1.pdf
+/data_camp/Programming_in_PySpark_RDDs/chapter2.pdf

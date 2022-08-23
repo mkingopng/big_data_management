@@ -22,34 +22,45 @@ steps:
 
 """
 from mrjob.job import MRJob
-from mrjob.step import MRStep
 
 
 class Job(MRJob):
 
-    def steps(self):
-        return [
-            MRStep(mapper=self.mapper_get_words, reducer=self.reducer_count_articles_containing_each_word),
-            MRStep(mapper=self.mapper_get_years, reducer=self.reducer_sort_by_year)
-        ]
+    def mapper(self, _, line):
 
-    def mapper_get_words(self, line, words):
-        line_arr = line.strip().split(',')
-        words = line_arr[1].split(' ')
-        for word in words:
-            yield word, 1
+        ts, text = line.split(',')
+        year = ts[:4]
+        terms = text.split()
+        for w in terms:
+            yield w, (year, 1)
 
-    def mapper_get_years(self, line, year):
-        line_arr = line.strip().split(',')
-        years = line_arr[0]
-        for year in years:
-            year = years[0:4]
-            yield year, 1
+    def reducer(self, term, year_count_pairs):
+        year_count = {}
+        for year, count in year_count_pairs:
+            if year not in year_count:
+                year_count[year] = count
+            else:
+                year_count[year] += count
 
-    def reducer_count_articles_containing_each_word(self):
-        pass
+        max_year_count_pair = sorted(year_count.items(), key=lambda x: (x[1], x[0]))[-1]
+        year = max_year_count_pair[0]
+        count = max_year_count_pair[1]
+        yield term, f"{year}:{count}"
 
-    def reducer_sort_by_year(self, year):
-        pass
+
+if __name__ == '__main__':
+    Job.run()
 
 # test locally: python 4a.py abcnews.txt
+
+# create a default directory on hdfs
+# hdfs dfs -mkdir -p /user/user
+
+# copy the file to it
+# hdfs dfs -put abcnews.txt
+
+# pass this file to job.py and store the output in hdfs
+# python job.py -r hadoop hdfs:///user/user/abcnews.txt -o hdfs:///user/user/output
+
+# check the results on hdfs
+# hdfs dfs -cat output/p*

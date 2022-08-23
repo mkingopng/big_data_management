@@ -6,11 +6,11 @@ sc = SparkContext('local', 'top3')
 # comments_path = "file:///home/Comments.csv"
 comments_path = "file://../week_5_spark/try_it_top_k_users_csv_data/comments.csv"
 
-comments_File = sc.textFile(comments_path).map(lambda line: line.strip().split(','))
+comments_file = sc.textFile(comments_path).map(lambda line: line.strip().split(','))
 user_id = 5
 
 # Process Comments.csv
-comments_pairs = comments_File.map(lambda x: (x[user_id], 1))
+comments_pairs = comments_file.map(lambda x: (x[user_id], 1))
 
 #
 id_user_pairs = comments_pairs.reduceByKey(lambda x, y: x + y)

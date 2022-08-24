@@ -1,0 +1,3 @@
+
+
+$ hive -f script.hql

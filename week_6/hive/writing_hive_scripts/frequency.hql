@@ -1,0 +1,12 @@
+CREATE TABLE ourText (
+    line STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\n'
+STORED AS textfile;
+
+LOAD DATA LOCAL INPATH 'text.txt' OVERWRITE INTO TABLE ourText;
+
+SELECT word, COUNT(*)
+FROM ourText LATERAL VIEW EXPLODE(SPLIT(line, ' ')) words as word
+GROUP BY word;

@@ -1,5 +1,4 @@
 # Working with local text
-
 Let's now use Hive to work with a text file.
 
 When you click the panel on the right you'll get a terminal connection to a 
@@ -12,7 +11,12 @@ Use the following command to start a Hive shell:
 
 ## Create a table
 
-Let's create a table in which to put the text file. We need to tell Hive what columns to have in the table, and what type of data is stored in each column (string, integer, date, etc.). We also need to tell it how to interpret an input file as having this structure. Let's think of each line in the text file as being a row in our table, and put the whole line into a single column called "line". So let's create a table using the following command:
+Let's create a table in which to put the text file. We need to tell Hive what 
+columns to have in the table, and what type of data is stored in each column 
+(string, integer, date, etc.). We also need to tell it how to interpret an 
+input file as having this structure. Let's think of each line in the text file 
+as being a row in our table, and put the whole line into a single column called 
+"line". So let's create a table using the following command:
 
 > CREATE TABLE ourText (line STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\n' STORED AS textfile;
 
@@ -89,39 +93,29 @@ answers about words. This involves using the above query as a subquery in
 other queries. For example:
 
 ### How many words are there?
-> SELECT COUNT(*)
-FROM (SELECT EXPLODE(SPLIT(line, ' ')) AS word FROM ourText) AS words;
+> SELECT COUNT(*) FROM (SELECT EXPLODE(SPLIT(line, ' ')) AS word FROM ourText) AS words;
 
 ### What is the average word length?
 
->SELECT AVG(LENGTH(word))
-FROM (SELECT EXPLODE(SPLIT(line, ' ')) AS word FROM ourText) AS words;
+>SELECT AVG(LENGTH(word)) FROM (SELECT EXPLODE(SPLIT(line, ' ')) AS word FROM ourText) AS words;
 
 ### What is the frequency of each word?
-> SELECT word, COUNT(*)
-FROM (SELECT EXPLODE(SPLIT(line, ' ')) AS word FROM ourText) AS words
-GROUP BY word;
+> SELECT word, COUNT(*) FROM (SELECT EXPLODE(SPLIT(line, ' ')) AS word FROM ourText) AS words GROUP BY word;
 
 # Lateral View
-Hive has a way of doing this more efficiently, using LATERAL VIEW. This 
-gives a way of merging the results of EXPLODE back together with the 
-original table.
+Hive has a way of doing this more efficiently, using LATERAL VIEW. This gives 
+a way of merging the results of EXPLODE back together with the original table.
 
->SELECT word
-FROM ourText LATERAL VIEW EXPLODE(SPLIT(line, ' ')) words as word;
+>SELECT word FROM ourText LATERAL VIEW EXPLODE(SPLIT(line, ' ')) words as word;
 
 ### What are the unique words?
 
-> SELECT DISTINCT word
-FROM ourText LATERAL VIEW EXPLODE(SPLIT(line, ' ')) words as word;
+> SELECT DISTINCT word FROM ourText LATERAL VIEW EXPLODE(SPLIT(line, ' ')) words as word;
 
 ### What is the average word length?
 
-> SELECT AVG(LENGTH(word))
-FROM ourText LATERAL VIEW EXPLODE(SPLIT(line, ' ')) words as word;
+> SELECT AVG(LENGTH(word)) FROM ourText LATERAL VIEW EXPLODE(SPLIT(line, ' ')) words as word;
 
 ### What is the frequency of each word?
 
-> SELECT word, COUNT(*)
-FROM ourText LATERAL VIEW EXPLODE(SPLIT(line, ' ')) words as word
-GROUP BY word;
+> SELECT word, COUNT(*) FROM ourText LATERAL VIEW EXPLODE(SPLIT(line, ' ')) words as word GROUP BY word;

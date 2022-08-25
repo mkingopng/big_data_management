@@ -1,8 +1,11 @@
-import pyspark
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import *
 
 # hdfs dfs -mkdir -p /user/user
 
 # hdfs dfs -put employees.csv
+
+spark = SparkSession.builder.master("local").appName("termrank").getOrCreate()
 
 # create a DataFrame by loading the data in employees.csv
 employees = spark.read.format("csv").option("header", "true").load("employees.csv")
@@ -28,3 +31,4 @@ spark.sql("SELECT first_name, last_name, salary FROM employees WHERE salary = (S
 # Which employees were hired in 2007 and have a salary of more than $6,000?
 spark.sql("SELECT first_name, last_name, hire_date, salary FROM employees WHERE hire_date LIKE '2007-%' AND salary > 6000").show()
 
+# save the output

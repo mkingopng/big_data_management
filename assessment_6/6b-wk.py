@@ -22,10 +22,11 @@ spark = SparkSession.builder.getOrCreate()
 
 sc = spark.sparkContext
 
-csv_path = r'assessment_5_and_6/orders.csv'
+csv_path = r'assessment_6/6b -spark SQL with CSV/orders.csv'
 
-raw_df = spark.read.option('header', True).csv(csv_path)
-raw_df = raw_df.withColumn('Quantity', raw_df['Quantity'].cast(IntegerType()))
+# WKNOTE: better way of adding the headers, and infer the data type
+raw_df = spark.read.csv(csv_path, header=True, inferSchema=True)
+raw_df.printSchema()
 
 # use spark dataframe
 df = raw_df.groupBy('OrderDate').sum('Quantity')

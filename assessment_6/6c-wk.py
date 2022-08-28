@@ -22,14 +22,10 @@ spark = SparkSession.builder.getOrCreate()
 
 sc = spark.sparkContext
 
-csv_path = r'assessment_5_and_6/cases-locations.csv'
+csv_path = r'assessment_6/6c - spark SQL with CSV/cases-locations.csv'
 
-raw_df = spark.read.option('header', True).csv(csv_path)
-
-print(raw_df.schema)
-raw_df = raw_df.withColumn('notification_date', raw_df['notification_date'].cast(DateType()))
-raw_df = raw_df.withColumn('postcode', raw_df['postcode'].cast(IntegerType()))
-raw_df = raw_df.withColumn('num', raw_df['num'].cast(IntegerType()))
+raw_df = spark.read.csv(csv_path, header=True, inferSchema=True)
+raw_df.printSchema()
 
 raw_df.createOrReplaceTempView('case_locations')
 
